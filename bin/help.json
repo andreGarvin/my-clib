@@ -1,0 +1,64 @@
+{
+    "header": "bin is a file system management software that is designed for people who do not use 'git' or do not know how to code. bin is a very useful tool for organizing tracking files that have been modified or deleted from the bin container or current working directory.\n",
+    "manual": {
+        "version": "0.0.1",
+        "aurthor": "andreGarvin",
+        "license": "GNU",
+        "git-repo": "https://github.com/andreGarvin/bin"
+    },
+    "open": {
+        "description": "opens the GUI appliction for bin container depending on the directory you are in.\n",
+        "commands": {
+            "open <file name || folder name>": "opens the file and shows the content of the file; opens folder in the GUI application.\n"
+        }
+    },
+    "-l": {
+        "description": "list all the items in your bin and list files or other sub-directoires in the folder.\n",
+        "commands": {
+            "-l || -l .": "this list all the items in the bin container in your bin.\n",
+            "-l <folder name>": "see a list of items in a certain directroy path in your bin container or directories on local computer.\n"
+        }
+    },
+    "add": {
+        "description": "adds files to staging area to be pushed to bin.\n",
+        "commands": {
+            ".": "adding everything in the loacl directory bin is currently in.\n",
+            "<file || folder>": "addes cretian items to your bin container.\n"
+        }
+    },
+    "stat": {
+        "description": "gives status report about the your bin.\n",
+        "commands": {
+            "-d": "all deleted files or folders\n",
+            "-m": "all modified files or folders\n",
+            "-n": "all nes files or folders add to the current working directory your bin container is located.\n",
+            "-bc": "displays the number of items in your bin container.\n",
+            "-f": "all the fiolders in your bin\n",
+            "-fc": "all the file counts in your bin container.\n",
+            "-dc": "all the folder count in your bin container.\n",
+            "-u": "all the untracked fils not pushed to your bin conatiner.\n",
+            "-x": "all the excutables in your bin conatiner.\n"
+        }
+    },
+    "push": {
+        "description": "psuhes all the files added to the stgaing area to the bin container.\n",
+        "commands": {
+            "push": "\n",
+            "push -git": "\n"
+        }
+    },
+    "drop": {
+        "description": "drop certaine files or folders from the bin conatiner.\n",
+        "commands": {
+            ".": "drops everything n your bin container from folders to files or other items container in the bin container.\n",
+            " <file || folder>": "delete a certain file or folder in the bin container.\n",
+            "-d": "delete entire bin container or refresh\n"
+        }
+    },
+    "init": {
+        "description": "initializes the bin container.\n"
+    },
+    "--help": {
+        "description": "Displays the manual page of all the commands used in bin cli and the what the commands and most commonly used commands.\n"
+    }
+}

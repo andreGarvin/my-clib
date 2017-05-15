@@ -1,0 +1,13 @@
+{
+  "owners": [],
+  "help": "./help.json",
+  "README": "./README.md",
+  "main-app": "./cli.js",
+  "arguments" : {
+      "build": {
+          "path": "",
+          "args": null,
+          "payload": null
+      }
+  }
+}
