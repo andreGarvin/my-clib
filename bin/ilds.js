@@ -39,3 +39,7 @@ exports.onload = function( file_name, callback ) {
     }
 
 }
+
+
+module.exports.save = () => {}
+module.exports.init = () => {}

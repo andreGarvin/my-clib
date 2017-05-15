@@ -1,11 +1,11 @@
-var bin = require('./bin/app.js');
+var bin = require('./bin/index.js');
+
 
 bin.onload('cli.json', (err, data) => {
     if (err) return bin.catchError(err.msg);
 
 
-    tool.catchError(err, undefined, 'debug');
-
+    // bin.catchError('*error: this is debbuging test', undefined, 'debug');
     /*
       action to be the frist offset
       the arguments the second offset if there is any
@@ -21,10 +21,13 @@ bin.onload('cli.json', (err, data) => {
           };
     */
 
-    bin.argParser(process.argv, (err, payload) => {
+
+    bin.argParser(process.argv, (err, obj) => {
         if (err) return tool.catchError(err);
 
-        console.log( payload );
+        bin.logger('looger', obj);
+
+        bin.dispatch_action(obj, './script.js');
     });
 
 });

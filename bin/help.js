@@ -7,7 +7,7 @@ var fs = require('fs');
 exports.manual = ( action ) => {
 
     if ( action === undefined )
-        fs.readFile('./lib/help.json', 'utf8', (err, manual_doc) => {
+        fs.readFile('./help.json', 'utf8', (err, manual_doc) => {
             if (err) {
 
                 console.log(`error: ${ err.message }`);
@@ -36,7 +36,7 @@ exports.manual = ( action ) => {
 
     else if ( action !== undefined )
 
-        fs.readFile('./lib/help.json', 'utf8', (err, manual_doc) => {
+        fs.readFile('./help.json', 'utf8', (err, manual_doc) => {
             if (err) {
 
                 console.log(`error: ${ err.message }`);
