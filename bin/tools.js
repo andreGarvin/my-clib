@@ -68,6 +68,7 @@ module.exports.logger = ( dest_file, input, callback ) => {
           passing the callback if not undefined
       */
       if (!exst) {
+          
           return tool.catchError(`*error: '${ dest_file }' does not exist.`, (err) => {
 
               console.log(err.msg);
@@ -77,9 +78,8 @@ module.exports.logger = ( dest_file, input, callback ) => {
                   if (err) return tool.catchError(err.message, callback === undefined ? undefined : callback);
 
                   fs.writeFileSync(dest_file, format, 'utf8');
-
-                  // console.log( );
-                  return callback(null, format) || format;
+                
+                  return format || callback(null, format);
               })
           });
       }

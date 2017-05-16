@@ -4,7 +4,8 @@ var bin = require('./bin/index.js');
 bin.onload('cli.json', (err, data) => {
     if (err) return bin.catchError(err.msg);
 
-
+    bin.global_state = JSON.stringify( data );
+    
     // bin.catchError('*error: this is debbuging test', undefined, 'debug');
     /*
       action to be the frist offset
@@ -23,11 +24,12 @@ bin.onload('cli.json', (err, data) => {
 
 
     bin.argParser(process.argv, (err, obj) => {
-        if (err) return tool.catchError(err);
+        if (err) return bin.catchError(err);
+        
+        // console.log(obj);
+        // bin.logger('looger', obj);
 
-        bin.logger('looger', obj);
-
-        bin.dispatch_action(obj, './script.js');
+        bin.dispatch_action(obj, bin.global_state);
     });
 
 });

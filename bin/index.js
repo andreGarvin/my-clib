@@ -6,8 +6,9 @@ module.exports = {
     includes: require('./tools.js').includes,
     catchError: require('./tools.js').catchError,
     argParser: require('./arg-parser.js').argParser,
-    dispatch_action: require('./dispatch_action.js').dispatch_action
-
+    dispatch_action: require('./dispatch_action.js').dispatch_action,
+    global_state: ''
+    
     // init: require('./ilds.js').init,
     // save: require('./ilds.js').save,
     // help: require('./help.js').manual,

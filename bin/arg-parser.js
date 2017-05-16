@@ -6,7 +6,7 @@ module.exports.argParser = function(args, callback) {
     if ( args.length !== 0 || args !== undefined ) {
 
         var obj = {
-            action: args[1],
+            action: args[1].slice(0, 2) === '--' ? args[1].slice(2, args[1].length) : args[1],
             args: [],
             payload: []
         };
@@ -18,11 +18,12 @@ module.exports.argParser = function(args, callback) {
 
                  obj.args = args[i].split('').slice(1, args[i].split('').length);
              }
-             else if ( args[i].slice(0, 2) === '--' ) {
-
-                // console.log( args[i] );
-                 obj.args.push( args[i].slice(i, args[i].length) );
-             }
+             
+            // is s flag --help considered ar arguement
+            //  else if ( args[i].slice(0, 2) === '--' ) {
+                 
+            //      obj.args.push( args[i].slice(i, args[i].length) );
+            //  }
              else if ( ( args[i].slice(0, 2) !== '--' && i !== 1 ) || ( args[i][0] === '-' && args[i][1] !== '-' ) ) {
 
                   index = i;

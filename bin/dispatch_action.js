@@ -1,23 +1,42 @@
-const fs = require('fs'),
+const tool = require('./tools.js'),
+help = require('./help.js'),
 path = require('path'),
-tool = require('./tools.js');
+fs = require('fs');
 
 // dispatchs the actions to the
-module.eports.dispatch_action = (obj, method_path) => {
-
+module.exports.dispatch_action = (obj, globalState) => {
+    
+    globalState = JSON.parse( globalState );
+    var resp;
     switch ( obj.action ) {
         case 'help':
 
           if ( obj.payload.length !== 0 )
-              bin.help(obj.pyload);
+              help(obj.pyload);
 
-          bin.help();
+          help();
           break;
 
         default:
-
-          var method = require( );
+          
+          
+          console.log( globalState );
+          // var commands = Object.keys( globalState.commands );
+          // for ( var i in commands ) {
+              
+          //     if ( tool.includes(commands, obj.action) ) {
+                  
+          //         return resp = 'yes';
+          //     }
+          // }
+          
+          // if ( resp !== undefined ) {
+          //     console.log( resp );
+          // }
+          
+          // tool.catchError(`*error: Unkown command '${ obj.action }', exit.`);
           break;
     }
-
+    
+    // return resp;
 }

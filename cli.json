@@ -1,9 +1,11 @@
 {
-  "owners": [],
+  "owners": [
+    "andreGarvin"
+  ],
   "help": "./help.json",
   "README": "./README.md",
   "main-app": "./cli.js",
-  "arguments" : {
+  "commands" : {
       "build": {
           "path": "",
           "args": null,
