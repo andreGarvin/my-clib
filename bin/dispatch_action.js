@@ -12,31 +12,32 @@ module.exports.dispatch_action = (obj, globalState) => {
         case 'help':
 
           if ( obj.payload.length !== 0 )
-              help(obj.pyload);
+              help.manual(obj.pyload);
 
-          help();
+          help.manual();
           break;
 
         default:
           
           
-          console.log( globalState );
-          // var commands = Object.keys( globalState.commands );
-          // for ( var i in commands ) {
+          var commands = Object.keys( globalState.commands );
+          for ( var i in commands ) {
               
-          //     if ( tool.includes(commands, obj.action) ) {
+              if ( tool.includes(commands, obj.action) ) {
                   
-          //         return resp = 'yes';
-          //     }
-          // }
+                  var method = require( path.resolve( obj['main-app'] ) );
+                  
+                  console.log( method );
+                  // method(obj.action);
+                  resp = 1;
+              }
+          }
           
-          // if ( resp !== undefined ) {
-          //     console.log( resp );
-          // }
-          
-          // tool.catchError(`*error: Unkown command '${ obj.action }', exit.`);
           break;
     }
     
-    // return resp;
+    if ( resp === undefined ) {
+          
+        tool.catchError(`*error: Unkown command '${ obj.action }', exit.`);
+    }
 }

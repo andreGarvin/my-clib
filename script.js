@@ -1,1 +1,5 @@
-var bin = require('./bin/index.js');
+module.exports = ( action ) => {
+    if ( action === 'build' ) {
+        console.log('build');
+    }
+}

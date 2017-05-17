@@ -4,7 +4,7 @@ var bin = require('./bin/index.js');
 bin.onload('cli.json', (err, data) => {
     if (err) return bin.catchError(err.msg);
 
-    bin.global_state = JSON.stringify( data );
+    bin.global_state = data;
     
     // bin.catchError('*error: this is debbuging test', undefined, 'debug');
     /*

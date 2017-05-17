@@ -4,7 +4,7 @@ var fs = require('fs');
 
 
 // exports the manual
-exports.manual = ( action ) => {
+module.exports.manual = ( action ) => {
 
     if ( action === undefined )
         fs.readFile('./help.json', 'utf8', (err, manual_doc) => {
