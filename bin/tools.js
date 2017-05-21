@@ -1,3 +1,7 @@
+
+
+
+
 module.exports.catchError = ( err, callback, mode ) => {
 
     // checking if the callback param is undefined
@@ -24,7 +28,9 @@ module.exports.catchError = ( err, callback, mode ) => {
         msg: err.msg || err || `*error: ${ err.message.split(' ').splice(1, err.message.split(' ').length).join(' ') }.`,
         status: false
     });
-}
+};
+
+
 
 // goes through an array and checks if the item exsit
 module.exports.includes = ( arr, item ) => {
@@ -40,7 +46,9 @@ module.exports.includes = ( arr, item ) => {
 
       // if the item is not found then return false.
       return false;
-}
+};
+
+
 
 // internal logger
 module.exports.logger = ( dest_file, input, callback ) => {
@@ -68,7 +76,7 @@ module.exports.logger = ( dest_file, input, callback ) => {
           passing the callback if not undefined
       */
       if (!exst) {
-          
+
           return tool.catchError(`*error: '${ dest_file }' does not exist.`, (err) => {
 
               console.log(err.msg);
@@ -78,7 +86,7 @@ module.exports.logger = ( dest_file, input, callback ) => {
                   if (err) return tool.catchError(err.message, callback === undefined ? undefined : callback);
 
                   fs.writeFileSync(dest_file, format, 'utf8');
-                
+
                   return format || callback(null, format);
               })
           });
@@ -86,12 +94,14 @@ module.exports.logger = ( dest_file, input, callback ) => {
 
       // if the file exist get the ata from the 'dest_file'
       // then format the data from the input argument
-      data = fs.readFileSync(dest_file, 'utf8')
+      data = fs.readFileSync(dest_file, 'utf8');
 
+      // concatinate the data from the file 'looger' file or 'logger data' with the new fromated data
+      data = data += format;
       if ( callback !== undefined ) {
 
           // write to the file in utf8 format and concatenat the data from the 'dest_file' and the 'fomat'
-          fs.writeFile(dest_file, data += format, 'utf8', (err) => {
+          fs.writeFile(dest_file, data, 'utf8', (err) => {
               // if there is a error then return catchError() with a callback() if one is provided.
               if (err) return tool.catchError(err.message, callback === undefined ? undefined : callback);
 
@@ -99,5 +109,15 @@ module.exports.logger = ( dest_file, input, callback ) => {
               return callback(null, format);
           });
       }
+
+      try {
+	   fs.writeFileSync(dest_file, data, 'utf8');
+	   console.log( data );
+	   return format;
+      }
+      catch (e) {
+      	     return tool.catchError(e);
+      }
+
     });
-}
+};

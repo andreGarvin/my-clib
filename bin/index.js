@@ -6,7 +6,7 @@ module.exports = {
     includes: require('./tools.js').includes,
     catchError: require('./tools.js').catchError,
     argParser: require('./arg-parser.js').argParser,
-    dispatch_action: require('./dispatch_action.js').dispatch_action,
+    // dispatch_action: require('./dispatch_action.js').dispatch_action,
     help: require('./help.js').manual,
     global_state: ''
     

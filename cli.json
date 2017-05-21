@@ -7,9 +7,14 @@
   "main-app": "./script.js",
   "commands" : {
       "build": {
-          "path": "",
-          "args": false,
-          "payload": false
+          "path": "./build.js",
+          "args": ["x", "e", "E"],
+          "payload": null
+      },
+      "run-dev-server": {
+          "path": "./dev-server.js",
+          "args": null,
+          "payload": true
       }
   }
 }

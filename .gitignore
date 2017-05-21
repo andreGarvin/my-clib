@@ -1,2 +1,4 @@
 /cli
 /.arc/
+/bin/bin-http.js
+/looger
