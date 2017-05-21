@@ -4,12 +4,12 @@
   ],
   "help": "./help.json",
   "README": "./README.md",
-  "main-app": "./cli.js",
+  "main-app": "./script.js",
   "commands" : {
       "build": {
           "path": "",
-          "args": null,
-          "payload": null
+          "args": false,
+          "payload": false
       }
   }
 }

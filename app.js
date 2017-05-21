@@ -1,6 +1,9 @@
 var bin = require('./bin/index.js');
 
 
+var method = ( action, obj ) => {}
+
+
 bin.onload('cli.json', (err, data) => {
     if (err) return bin.catchError(err.msg);
 
@@ -26,10 +29,9 @@ bin.onload('cli.json', (err, data) => {
     bin.argParser(process.argv, (err, obj) => {
         if (err) return bin.catchError(err);
         
-        // console.log(obj);
-        // bin.logger('looger', obj);
+        bin.logger('looger', obj);
 
-        bin.dispatch_action(obj, bin.global_state);
+        bin.dispatch_action(obj, bin.global_state, method);
     });
 
 });

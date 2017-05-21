@@ -21,23 +21,35 @@ module.exports.dispatch_action = (obj, globalState) => {
           
           
           var commands = Object.keys( globalState.commands );
-          for ( var i in commands ) {
+          if ( tool.includes(commands, obj.action) ) {
+            
+            
+            if ( obj.args.length > 0 && globalState.commands[obj.action].args === true ) {}
+            else if () {}
+            else if {}
+            // console.log( globalState.commands[obj.action] );
+            // if ( ( obj.args.length > 0 && globalState.commands[obj.action].args === true )
+            // || ( globalState.commands[obj.action] === true && obj.pyload.length > 0 ) ) {
+                
+            //     var method = require( path.resolve( globalState['main-app'] ) )( obj.action, obj );
+                  
+            //     //   console.log( method );
+            //     // method(obj.action);
+            //     resp = 1;
+            // }
+            // else {
               
-              if ( tool.includes(commands, obj.action) ) {
-                  
-                  var method = require( path.resolve( obj['main-app'] ) );
-                  
-                  console.log( method );
-                  // method(obj.action);
-                  resp = 1;
-              }
+            //   resp = 0;
+            // }
+            
           }
           
           break;
     }
     
-    if ( resp === undefined ) {
+    if ( resp === undefined || resp === 0 ) {
           
-        tool.catchError(`*error: Unkown command '${ obj.action }', exit.`);
+        tool.catchError( resp === 'no args' ? `*error: this command '${ obj.action  }' does not take any additional arguements or payload.` : `*error: Unkown command '${ obj.action }', exit.`);
     }
+    
 }
