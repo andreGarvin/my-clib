@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "This is a node module that helps building command line interfaces(cli)/tools much faster and easier.",
   "main": "index.js",
+  "bin": {
+      "bin": "index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node . --help"
   },
   "repository": {
     "type": "git",
