@@ -111,12 +111,13 @@ module.exports.logger = ( dest_file, input, callback ) => {
       }
 
       try {
-	   fs.writeFileSync(dest_file, data, 'utf8');
-	   console.log( data );
-	   return format;
+
+           fs.writeFileSync(dest_file, data, 'utf8');
+	         return format;
       }
       catch (e) {
-      	     return tool.catchError(e);
+
+             return tool.catchError(e);
       }
 
     });

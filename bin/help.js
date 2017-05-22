@@ -1,8 +1,5 @@
 var fs = require('fs');
 
-// var command = require('./command.js');
-
-
 // exports the manual
 module.exports.manual = ( action ) => {
 
@@ -61,18 +58,4 @@ module.exports.manual = ( action ) => {
             console.log(`bin: command '${ action }' is unkown.`);
         })
 
-}
-
-// bitKeeper: https://www.bitkeeper.com/
-
-// help function
-// add  function()
-// push function
-// stat function
-// restore function
-// drop function
-// delete function
-// bin dropbox --oauth true
-// bin drive --oauth true
-// bin --api create || run || kill <api name>
-// list directory || bin directory
+};

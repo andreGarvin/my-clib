@@ -6,20 +6,27 @@ var method = ( action, obj ) => {
 
         case 'run-dev-server':
 
-              scriptRouter(obj.path, obj, ( err ) => {
+              scriptRouter(obj.path, obj, (err) => {
                   if (err) return tool.catchError(err);
 
                   console.log('finished!');
               });
               break;
+
+        case 'build':
+
+              scriptRouter(obj.path, obj, (err) => {
+                  if (err) return tool.catchError(err);
+
+                  console.log('finished!');
+              });
     }
 };
-
 
 bin.onload('cli.json', (err, data) => {
     if (err) return bin.catchError(err.msg);
 
-    bin.global_state = data;
+    bin.global_state = JSON.parse( data );
 
     // bin.catchError('*error: this is debbuging test', undefined, 'debug');
     /*
@@ -41,10 +48,9 @@ bin.onload('cli.json', (err, data) => {
     bin.argParser(process.argv, (err, obj) => {
         if (err) return bin.catchError(err);
 
-        bin.logger('looger', obj);
+        // bin.logger('looger', obj);
 
-	      console.log( obj );
-        // bin.dispatch_action(obj, bin.global_state, method);
+        bin.dispatch_action(method, obj, bin.global_state.commands);
     });
 
 });
