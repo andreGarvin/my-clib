@@ -1,0 +1,15 @@
+{
+  "name": "bin",
+  "version": "1.0.0",
+  "description": "This is a node module that helps building command line interfaces(cli)/tools much faster and easier.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/andreGarvin/bin.git"
+  },
+  "author": "andreGarvin (andregarvin718@gmail.com)",
+  "license": "MIT"
+}
