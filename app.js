@@ -50,7 +50,8 @@ bin.onload('cli.json', (err, data) => {
 
         // bin.logger('looger', obj);
 
-        bin.dispatch_action(method, obj, bin.global_state.commands);
+        var commands = bin.global_state.commands;
+        bin.dispatch_action(method, obj, commands);
     });
 
 });
