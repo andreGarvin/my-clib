@@ -1,47 +1,62 @@
- ## bin.js is the node module to help build command line interfaces much faster and easier.
+## bin.js is the node module to help build command line interfaces much faster and easier.
  
- #### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
+#### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
  
- ```
- /*
+```
+
+/*
     Here is a code example on how to set up bin.js
     making my own very simple version of curl.
 */
 
-var bin = require('bin');
- 
- 
-var method = function( action, obj ) {
-     
-    switch( action ) {
-         
+const bin = require('./bin'); // if you are using the cloned version
+
+
+var method = ( action, obj ) => {
+    
+    var axios = require('axios');
+    
+    switch ( action ) {
+        
         case 'GET':
             
-            var axios = require('axios');
-            
-            axios.get(obj.payload[0])
-            .then( ( resp ) => {
-                if (resp.status !== 'OK') return bin.catchError(`*error: The request responded back with a ${ resp.status }`);
-                
-                
-                console.log( resp );
-            });
-            
-            break;
-        
-        default:
-            
-            console.log(`*error: Command '${ action }' is undefined.`);
-            
+            var url = obj.payload[0],
+            htttpObj;
+            axios.get(url)
+                .then((resp) => {
+                    if (resp.status !== 200) return bin.catchError(`*error: status code is a '${ resp.status }'.`);
+                    
+                    htttpObj = {
+                        header: resp.headers['content-type'],
+                        server: resp.headers.server,
+                        date: resp.headers.date,
+                        status: resp.status,
+                        url: resp.config.url,
+                        // data: resp.data,
+                    };
+                    console.log( htttpObj );
+                    
+                })
+                .catch((err) => {
+                    
+                    bin.catchError(`*error: ${ err.message }'.`);
+                    console.log({
+                        headers: err.config.headers,
+                        method: err.config.method,
+                        url: err.config.url,
+                        data: err.data
+                    });
+                })
             break;
     }
 };
- 
-bin.argParser(process.argv, ( err, obj ) => {
-    if (err) return catchError(err);
+
+bin.argParser(process.argv, (err, obj) => {
+    if (err) return bin.catchError(err);
     
+    // console.log( obj );
     bin.dispatch_action(method, obj);
-})
+});
 
 ```
 ## How does bin.js work and what are its methods ?

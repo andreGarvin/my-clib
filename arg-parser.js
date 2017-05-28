@@ -63,7 +63,7 @@ module.exports.argParser = function(args, callback) {
             else return a empty array as the payload
         */
         obj.payload = args[index] !== undefined ? args.slice(index, args.length) : [];
-s
+
         /*
             if a callback was given or does not equal undefined then
             return the callback 
