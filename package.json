@@ -1,5 +1,5 @@
 {
-  "name": "freebie",
+  "name": "bin",
   "version": "1.0.0",
   "description": "This is a node module that helps building command line interfaces(cli)/tools much faster and easier.",
   "main": "index.js",

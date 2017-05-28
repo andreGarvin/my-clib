@@ -1,47 +1,60 @@
- ## freebie.js is the node module to help build command line interfaces much faster and easier.
+## bin.js is the node module to help build command line interfaces much faster and easier.
 
- #### freebie is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
+#### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
 
- ```
- /*
+```
+/*
     Here is a code example on how to set up bin.js
     making my own very simple version of curl.
 */
+const bin = require('./bin'); // if you are using the cloned version
 
-var freebie = require('freebie');
 
+var method = ( action, obj ) => {
 
-var method = function( action, obj ) {
+    var axios = require('axios');
 
-    switch( action ) {
+    switch ( action ) {
 
         case 'GET':
 
-            var axios = require('axios');
+            var url = obj.payload[0],
+            htttpObj;
+            axios.get(url)
+                .then((resp) => {
+                    if (resp.status !== 200) return bin.catchError(`*error: status code is a '${ resp.status }'.`);
 
-            axios.get(obj.payload[0])
-            .then( ( resp ) => {
-                if (resp.status !== 'OK') return freebie.catchError(`*error: The request responded back with a ${ resp.status }`);
+                    htttpObj = {
+                        header: resp.headers['content-type'],
+                        server: resp.headers.server,
+                        date: resp.headers.date,
+                        status: resp.status,
+                        url: resp.config.url,
+                        // data: resp.data,
+                    };
+                    console.log( htttpObj );
 
+                })
+                .catch((err) => {
 
-                console.log( resp );
-            });
-
-            break;
-
-        default:
-
-            console.log(`*error: Command '${ action }' is undefined.`);
-
+                    bin.catchError(`*error: ${ err.message }'.`);
+                    console.log({
+                        headers: err.config.headers,
+                        method: err.config.method,
+                        url: err.config.url,
+                        data: err.data
+                    });
+                })
             break;
     }
 };
 
-freebie.argParser(process.argv, ( err, obj ) => {
-    if (err) return freebie.catchError(err);
+bin.argParser(process.argv, (err, obj) => {
+    if (err) return bin.catchError(err);
 
-    freebie.dispatch_action(method, obj);
-})
+    // console.log( obj );
+    bin.dispatch_action(method, obj);
+});
 
 ```
 ## How does freebie.js work and what are its methods ?
