@@ -17,7 +17,15 @@ module.exports.argParser = function(args, callback) {
              //  if the item has a dash or a double dash then append it to obj.args
              if ( args[i][0] === '-' && args[i][1] !== '-' ) {
 
-                 obj.args = args[i].split('').slice(1, args[i].split('').length);
+                 var arr = args[i].split('').slice(1, args[i].split('').length);
+                 for ( var j in arr ) {
+                     
+                     obj.args.push( arr[j] );
+                 }
+             }
+             else if ( args[i].slice(0, 2) === '--' ) {
+                 
+                 obj.args.push( args[i].slice(2, args[i].length) );
              }
              // this checks wether the item in the array does not have adash or double dashes
              else if ( ( args[i].slice(0, 2) !== '--' && i !== 1 ) || ( args[i][0] === '-' && args[i][1] !== '-' ) ) {

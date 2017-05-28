@@ -18,19 +18,21 @@ module.exports.dispatch_action = (method, obj, commands) => {
 
         default:
 
-              // checks wether the command exists
-              if ( tool.includes(Object.keys( commands ), obj.action ) ) {
+              if ( commands !== undefined ) {
+                    // checks wether the command exists
+                    if ( tool.includes(Object.keys( commands ), obj.action ) ) {
 
-                    // checks weather the command requires any arguements or paylaod
-                    var command = commands[ obj.action ];
-                    if ( ( obj.payload.length !== 0 && command.payload === null ) || ( obj.args.length !== 0 && command.args === null ) ) {
+                        // checks weather the command requires any arguements or paylaod
+                        var command = commands[ obj.action ];
+                        if ( ( obj.payload.length !== 0 && command.payload === null ) || ( obj.args.length !== 0 && command.args === null ) ) {
                         
-                        resp = '*error: This command does accept any payload or arguments.';
+                            resp = '*error: This command does accept any payload or arguments.';
+                        }
                     }
-              }
-              else {
+                    else {
                   
-                  resp = '*error: This command does not exist.';
+                        resp = '*error: This command does not exist.';
+                    }  
               }
               break;
 
