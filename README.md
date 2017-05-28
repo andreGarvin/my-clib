@@ -1,31 +1,29 @@
 ## bin.js is the node module to help build command line interfaces much faster and easier.
- 
-#### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
- 
-```
 
+#### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
+
+```
 /*
     Here is a code example on how to set up bin.js
     making my own very simple version of curl.
 */
-
 const bin = require('./bin'); // if you are using the cloned version
 
 
 var method = ( action, obj ) => {
-    
+
     var axios = require('axios');
-    
+
     switch ( action ) {
-        
+
         case 'GET':
-            
+
             var url = obj.payload[0],
             htttpObj;
             axios.get(url)
                 .then((resp) => {
                     if (resp.status !== 200) return bin.catchError(`*error: status code is a '${ resp.status }'.`);
-                    
+
                     htttpObj = {
                         header: resp.headers['content-type'],
                         server: resp.headers.server,
@@ -35,10 +33,10 @@ var method = ( action, obj ) => {
                         // data: resp.data,
                     };
                     console.log( htttpObj );
-                    
+
                 })
                 .catch((err) => {
-                    
+
                     bin.catchError(`*error: ${ err.message }'.`);
                     console.log({
                         headers: err.config.headers,
@@ -53,15 +51,15 @@ var method = ( action, obj ) => {
 
 bin.argParser(process.argv, (err, obj) => {
     if (err) return bin.catchError(err);
-    
+
     // console.log( obj );
     bin.dispatch_action(method, obj);
 });
 
 ```
-## How does bin.js work and what are its methods ?
+## How does freebie.js work and what are its methods ?
 
-#### The code example above is a very simple way to set up the node module, thisa module comaes with many things such as: 
+#### The code example above is a very simple way to set up the node module, this a module that comes with many things such as:
 <br />
 
 ### Methods:
@@ -77,7 +75,7 @@ bin.argParser(process.argv, (err, obj) => {
     <h5>init</h5>
 </ul>
 
-#### these methods are very esay to tinker around with, so feel free to edit the code and so forth.
+#### These methods are very easy to tinker around with the module and configure it to your application, so feel free to edit the code and so forth.
 
 ## contributors:
 ### andreGarvin: andregarvin718@gmail.com
