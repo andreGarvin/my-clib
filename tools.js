@@ -1,7 +1,3 @@
-
-
-
-
 module.exports.catchError = ( err, callback, mode ) => {
 
     // checking if the callback param is undefined

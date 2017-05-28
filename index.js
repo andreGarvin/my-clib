@@ -1,5 +1,5 @@
-
 // exporting the bin script modules
+
 module.exports = {
     onload: require('./ilds.js').onload,
     logger: require('./tools.js').logger,
@@ -9,7 +9,4 @@ module.exports = {
     dispatch_action: require('./dispatch_action.js').dispatch_action,
     help: require('./help.js').manual,
     global_state: ''
-
-    // init: require('./ilds.js').init,
-    // save: require('./ilds.js').save
 };
