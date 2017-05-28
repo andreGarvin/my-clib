@@ -18,22 +18,20 @@ exports.onload = function( file_name, callback ) {
               // using the internal tool
               return tool.catchError(err.message, callback === undefined ? undefined : callback);
             }
-
-            // if the data is not empty load it the object property 'my_bin'
-            if ( data !== undefined || data !== null ) {
-
-              return callback === undefined ? data : callback( null, data );
+            
+            // if the data is not empty load it the object property 'global_state' or wherever
+            if ( data === undefined || data === null || data.length === 0 ) {
+                
+                return tool.catchError(`*error: No data was able to be retreived from ${ file_name }.`, callback === undefined ? undefined : callback);
             }
-            else {
-
-              return tool.catchError(`*error: No data was able to be retrived from ${ file_name }.`, callback === undefined ? undefined : callback);
-            }
-
+              
+            return callback === undefined ? data : callback( null, data );
           });
 
         })
     }
     catch (err) {
+        
         // if there is a error the return catchError() with a callback{} if one as provided.
         return tool.catchError(err, callback === undefined ? undefined : callback);
     }

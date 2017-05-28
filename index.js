@@ -8,7 +8,6 @@ module.exports = {
     argParser: require('./arg-parser.js').argParser,
     dispatch_action: require('./dispatch_action.js').dispatch_action,
     help: require('./help.js').manual,
-    global_state: '',
     exArgs: function( arr, method, data ) {
     
         /*
@@ -24,5 +23,6 @@ module.exports = {
         }
     
         return output;
-    }
+    },
+    global_state: '',
 };

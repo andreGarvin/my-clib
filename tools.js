@@ -1,20 +1,20 @@
-module.exports.catchError = ( err, callback, mode ) => {
-
+module.exports.catchError = ( err, callback ) => {
+    
     // checking if the callback param is undefined
     if ( callback === undefined ) {
+        
+        /*
+            // check if in debug or dev mode
+            if ( mode === 'debug' ) {
 
-        // check if in debug mode
-        if ( mode === 'debug' ) {
-
-            // log to the console and break the chain flow
-            console.error( err || err.msg || `*error: ${ err.message.split(' ').splice(1, err.message.split(' ').length).join(' ') }.`);
-            return;
-        }
-
+                // log to the console and break the chain flow
+                return console.error( err || err.msg || `*error: ${ err.message.split(' ').splice(1, err.message.split(' ').length).join(' ') }.`);
+            }
+        */
+        
         // else if not in debug mode or is 'mode' is eqaul to undefined
         // log to the console and return
-        console.log( err || err.msg || `*error: ${ err.message.split(' ').splice(1, err.message.split(' ').length).join(' ') }.`);
-        return;
+        return console.log( err.msg || err || `*error: ${ err.message.split(' ').splice(1, err.message.split(' ').length).join(' ') }.`);
     }
 
     // if the callback is not undefined then return callback
