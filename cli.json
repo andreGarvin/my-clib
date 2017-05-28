@@ -9,7 +9,7 @@
       "build": {
           "path": "./build.js",
           "args": ["x", "e", "E"],
-          "payload": null
+          "payload": true
       },
       "run-dev-server": {
           "path": "./dev-server.js",

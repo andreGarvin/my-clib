@@ -4,22 +4,10 @@ var bin = require('./bin/index.js');
 var method = ( action, obj ) => {
     switch ( action ) {
 
-        case 'run-dev-server':
-
-              scriptRouter(obj.path, obj, (err) => {
-                  if (err) return tool.catchError(err);
-
-                  console.log('finished!');
-              });
-              break;
-
         case 'build':
-
-              scriptRouter(obj.path, obj, (err) => {
-                  if (err) return tool.catchError(err);
-
-                  console.log('finished!');
-              });
+    
+            console.log( obj );
+            break;
     }
 };
 
