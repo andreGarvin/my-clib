@@ -4,10 +4,10 @@
   "description": "This is a node module that helps building command line interfaces(cli)/tools much faster and easier.",
   "main": "index.js",
   "bin": {
-      "bin": "index.js"
+      "bin": "bin.js"
   },
   "scripts": {
-    "start": "node . --help"
+    "start": "node ."
   },
   "repository": {
     "type": "git",
