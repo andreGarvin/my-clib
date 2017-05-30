@@ -1,7 +1,6 @@
-## bin.js is the node module to help build command line interfaces much faster and easier.
+## bin.js is the node module to help build command line interfaces much faster and easier. bin.js is a very great tool for creating simple or large cli tools very quickly and painlessly.
 
-#### bin is a very great node module that helps programmers build command line tools tools for what there imagination leads them.
-
+## code example:
 ```
 /*
     Here is a code example on how to set up bin.js
@@ -57,12 +56,10 @@ bin.argParser(process.argv, (err, obj) => {
 });
 
 ```
-## How does freebie.js work and what are its methods ?
+## How does bin.js work and what are its methods ?
+#### The code example above is a very simple way to set up the node module, this a module that comes with much more and great tools to make your cli application very efficient.
 
-#### The code example above is a very simple way to set up the node module, this a module that comes with many things such as:
-<br />
-
-### Methods:
+### Some bin.js methods comes with:
 <ul>
     <h5>dispatch_action</h5>
     <h5>logger</h5>
@@ -75,7 +72,4 @@ bin.argParser(process.argv, (err, obj) => {
     <h5>init</h5>
 </ul>
 
-#### These methods are very easy to tinker around with the module and configure it to your application, so feel free to edit the code and so forth.
-
-## contributors:
-### andreGarvin: andregarvin718@gmail.com
+#### These methods are very easy use and tinker around with in your module and configure it to your application, so feel free to edit the code and so forth and contribute any new ideas or methods to make the module amazing.
