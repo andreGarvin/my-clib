@@ -1,12 +1,12 @@
-## bin.js is the node module to help build command line interfaces much faster and easier. bin.js is a very great tool for creating simple or large cli tools very quickly and painlessly.
+## clib.js is the node module to help build command line interfaces much faster and easier. clib.js is a very great tool for creating simple or large cli tools very quickly and painlessly.
 
 ## code example:
 ```
 /*
-    Here is a code example on how to set up bin.js
+    Here is a code example on how to set up clib.js
     making my own very simple version of curl.
 */
-const bin = require('./bin'); // if you are using the cloned version
+const clib = require('./clib'); // if you are using the cloned version
 
 
 var method = ( action, obj ) => {
@@ -21,7 +21,7 @@ var method = ( action, obj ) => {
             htttpObj;
             axios.get(url)
                 .then((resp) => {
-                    if (resp.status !== 200) return bin.catchError(`*error: status code is a '${ resp.status }'.`);
+                    if (resp.status !== 200) return clib.catchError(`*error: status code is a '${ resp.status }'.`);
 
                     htttpObj = {
                         header: resp.headers['content-type'],
@@ -36,7 +36,7 @@ var method = ( action, obj ) => {
                 })
                 .catch((err) => {
 
-                    bin.catchError(`*error: ${ err.message }'.`);
+                    clib.catchError(`*error: ${ err.message }'.`);
                     console.log({
                         headers: err.config.headers,
                         method: err.config.method,
@@ -48,18 +48,18 @@ var method = ( action, obj ) => {
     }
 };
 
-bin.argParser(process.argv, (err, obj) => {
-    if (err) return bin.catchError(err);
+clib.argParser(process.argv, (err, obj) => {
+    if (err) return clib.catchError(err);
 
     // console.log( obj );
-    bin.dispatch_action(method, obj);
+    clib.dispatch_action(method, obj);
 });
 
 ```
-## How does bin.js work and what are its methods ?
+## How does clib.js work and what are its methods ?
 #### The code example above is a very simple way to set up the node module, this a module that comes with much more and great tools to make your cli application very efficient.
 
-### Some bin.js methods comes with:
+### Some clib.js methods comes with:
 <ul>
     <h5>dispatch_action</h5>
     <h5>logger</h5>
