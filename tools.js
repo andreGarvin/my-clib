@@ -119,8 +119,8 @@ module.exports.logger = ( dest_file, input, callback ) => {
     });
 };
 
-/*
-function zip( arr1, arr2, callback ) {
+
+module.exports.zip = ( arr1, arr2, callback ) => {
     
     var newArray = [];
     for ( i = 0, j = 0; i < arr1.length, j < arr2.length; i++, j++  ) {
@@ -129,12 +129,4 @@ function zip( arr1, arr2, callback ) {
     }
 
     return newArray;
-}
-
-var x = zip([1,2,4,9], [1,2,4,4], (i, j) => {
-    
-    return i === j;
-})
-
-console.log( x )
-*/
+};
