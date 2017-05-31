@@ -49,20 +49,12 @@ module.exports.argParser = function(args, callback) {
              }
              // this checks wether the item in the array does not have adash or double dashes
              else if ( ( i !== 0 && i !== 1 ) && ( args[i].slice(0, 2) !== '--' && i !== 1 ) || ( args[i][0] === '-' && args[i][1] !== '-' ) ) {
-                  console.log( args.length );
-                  // if the item does not have that then the payload index marker starts there
-                  index = args.length <= 5 ? ( i + 1 ) - ( args.length - 2 ): ( i - 1 ) - 2;
+
+                  // pushes the payload data to the obj.payload array
+                  obj.payload.push( args[i] );
+
              }
         }
-
-        /*
-            if the index varibale is not undefined
-            then slice the rest of the args varibale
-            as the intail payload
-
-            else return a empty array as the payload
-        */
-        obj.payload = args[index] !== undefined ? args.slice(index, args.length) : [];
 
         /*
             if a callback was given or does not equal undefined then
