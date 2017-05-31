@@ -12,8 +12,7 @@ function createApp( app_name ) {
             
             case 'bin':
                 
-                console.log('Welcome to bin, the awesome node module to help 
-                building cli tools much faster and easier.');
+                console.log('Welcome to bin, the awesome node module to help building cli tools much faster and easier.');
                 break;
             default:
                 
