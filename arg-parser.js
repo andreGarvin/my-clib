@@ -1,11 +1,11 @@
 const tool = require('./tools.js');
 
 module.exports.argParser = function(args, callback) {
-    
+
     // splices the cli arguements
     // to return [ 'action', 'args', 'payload...' ]
     args = args.splice(1, args.length);
-    
+
     // if any args was passed to argParser
     if ( args.length !== 0 || args !== undefined ) {
 
@@ -17,7 +17,7 @@ module.exports.argParser = function(args, callback) {
         */
         var obj = {
             /*
-                if the args the slice array index of zero 
+                if the args the slice array index of zero
                 equals '--help' then return 'help',
                 else return ''
             */
@@ -40,34 +40,34 @@ module.exports.argParser = function(args, callback) {
                  }
              }
              else if ( args[i].slice(0, 2) === '--' ) {
-                 
+
                  /*
-                    if a index has double dash '--' 
+                    if a index has double dash '--'
                     then push that to the array obj.args
                  */
                  obj.args.push( args[i].slice(2, args[i].length) );
              }
              // this checks wether the item in the array does not have adash or double dashes
-             else if ( ( args[i].slice(0, 2) !== '--' && i !== 1 ) || ( args[i][0] === '-' && args[i][1] !== '-' ) ) {
-            
+             else if ( ( i !== 0 && i !== 1 ) && ( args[i].slice(0, 2) !== '--' && i !== 1 ) || ( args[i][0] === '-' && args[i][1] !== '-' ) ) {
+                  console.log( args.length );
                   // if the item does not have that then the payload index marker starts there
-                  index = args.length >= 5 ? i - 1: i;
+                  index = args.length <= 5 ? ( i + 1 ) - ( args.length - 2 ): ( i - 1 ) - 2;
              }
         }
 
         /*
-            if the index varibale is not undefined 
-            then slice the rest of the args varibale 
+            if the index varibale is not undefined
+            then slice the rest of the args varibale
             as the intail payload
-            
+
             else return a empty array as the payload
         */
         obj.payload = args[index] !== undefined ? args.slice(index, args.length) : [];
 
         /*
             if a callback was given or does not equal undefined then
-            return the callback 
-            
+            return the callback
+
             else return back the object
         */
         return callback !== undefined ? callback(null, obj) : console.log( args );
