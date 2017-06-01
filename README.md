@@ -2,6 +2,9 @@
 
 ## code example:
 ```
+_______________________________________________________
+> app.js
+
 /*
     Here is a code example on how to set up clib.js
     making my own very simple version of curl.
@@ -54,6 +57,19 @@ clib.argParser(process.argv, (err, obj) => {
     // console.log( obj );
     clib.dispatch_action(method, obj);
 });
+
+___________________________________________________
+> command line:
+
+node app.js GET https://www.guthub.com/andreGarvin/clib
+
+> output:
+
+{ header: 'text/html; charset=utf-8',
+  server: 'GitHub.com',
+  date: 'Thu, 01 Jun 2017 14:24:05 GMT',
+  status: 200,
+  url: 'https://www.github.com/andreGarvin/clib' }
 
 ```
 ## How does clib.js work and what are its methods ?
