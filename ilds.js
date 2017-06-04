@@ -56,3 +56,5 @@ module.exports.save = (path, data, callback) => {
           return console.log(`${ typeof data === string ? data.length : 'data' } was saved to '${ path }'`);
       });
 };
+
+// module.exports.init = () => {}
