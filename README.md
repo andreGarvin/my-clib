@@ -61,7 +61,7 @@ clib.argParser(process.argv, (err, obj) => {
 ___________________________________________________
 > command line:
 
-node app.js GET https://www.guthub.com/andreGarvin/clib
+node app.js GET https://www.github.com/andreGarvin/clib
 
 > output:
 

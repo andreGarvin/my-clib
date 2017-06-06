@@ -8,18 +8,21 @@ module.exports = {
     argParser: require('./arg-parser.js').argParser,
     dispatch_action: require('./dispatch_action.js').dispatch_action,
     help: require('./help.js').manual,
-    exArgs: function( arr, method, data ) {
+    exArgs: function( method, arr_args, data ) {
 
         /*
             assign data to output so when it passes it to method
-            on the first run it does not refeence the smae first
-            vlaue and rsssings to a new value
+            on the first run it does not reference the sa,e value
+            and rsssings to a new value.
+
+            Mutates the data base on the the number of
+            arguements and payload size.
         */
         var output = data;
-        for ( var i = 0; i < arr.length; i++ ) {
+        for ( var i = 0; i < arr_args.length; i++ ) {
 
             // call the mwthod again nd pass in the data
-            output = method(arr[i], output);
+            output = method(arr_args[i], output);
         }
 
         return output;
