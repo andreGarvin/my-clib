@@ -1,3 +1,4 @@
 /cli
 /.hooks
 /.logs
+/app.js
