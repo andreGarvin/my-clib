@@ -8,6 +8,7 @@ module.exports = {
     argParser: require('./arg-parser.js').argParser,
     dispatch_action: require('./dispatch_action.js').dispatch_action,
     help: require('./help.js').manual,
+    zip: require('./tools.js').zip,
     exArgs: function( method, arr_args, data ) {
 
         /*

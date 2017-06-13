@@ -48,13 +48,11 @@ module.exports.save = (path, data, callback) => {
           if ( callback !== undefined ) {
 
               return callback(null, {
-                  msg: `${ typeof data === string ? data.length : 'inputed data' } was saved to '${ path }.'`,
+                  msg: `${ typeof data === 'string' ? data.length : 'inputed data' } was saved to '${ path }.'`,
                   status: true
               });
           }
 
-          return console.log(`${ typeof data === string ? data.length : 'data' } was saved to '${ path }'`);
+          return console.log(`${ typeof data === 'string' ? data.length : 'data' } was saved to '${ path }'`);
       });
 };
-
-// module.exports.init = () => {}
