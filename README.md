@@ -154,8 +154,9 @@ ____________________________________________________
     passed into the function.
 
 #### prompt:
-    - args: input ( string ), callback ( function )
-    - details: Prompts user for input.
+- args: input ( string ), callback ( function )
+- details: Prompts user for input through your application.
+- improvements: makig this method run syncronessly.
 
 #### zip:
   - args: arr1 ( array ), arr2 ( array ), callback ( function )
@@ -169,4 +170,6 @@ ____________________________________________________
     for the bin project for users
 
 
-#### These methods are very easy use and tinker around when creating your own cli tool or configure to your already existing application, so feel free to edit the code and so forth. Also contribute any new ideas or methods to make the module amazing.
+#### These methods are very easy use and tinker around when creating your own cli tool or configure to your already existing application, so feel free to edit the code and so forth. Also contribute any new ideas or methods to make the module amazing, amke a issue or pull reuest on tis project.
+
+#### You can also contact me on twitter for anyy new ideas or implementations.
