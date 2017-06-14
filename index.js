@@ -1,3 +1,6 @@
+// modules needed for prompt
+const readline = require('readline');
+
 // exporting the bin script modules
 
 module.exports = {
@@ -27,6 +30,32 @@ module.exports = {
         }
 
         return output;
+    },
+    prompt: function( input, callback ) {
+        
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        })
+
+        rl.question(input, ( output ) => {
+            
+            if ( output.length == 0 || output === undefined ) {
+                
+                rl.close();
+                return callback({
+                    status: false,
+                    msg: 'error: No datawas passed in'
+                }, undefined)
+            }
+            
+            
+            rl.close();
+            return callback(null, {
+                data: output,
+                status: true
+            })
+        })
     },
     global_state: '',
 };
