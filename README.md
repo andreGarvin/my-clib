@@ -153,6 +153,10 @@ ____________________________________________________
   - details: returns back the modified data based on all the arguemnts
     passed into the function.
 
+#### prompt:
+    - args: input ( string ), callback ( function )
+    - details: Prompts user for input.
+
 #### zip:
   - args: arr1 ( array ), arr2 ( array ), callback ( function )
   - details: which is function that goes through two arrays at 
