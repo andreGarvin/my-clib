@@ -80,7 +80,8 @@ module.exports.logger = ( dest_file, input, callback ) => {
               console.log(`\n creating logger document '${ dest_file }'.`);
               fs.open(dest_file, 'w', (err, fd) => {
                   if (err) return tool.catchError(err.message, callback === undefined ? undefined : callback);
-
+                  
+                  console.log(`action => ${ input.action } : ${ format }`);
                   fs.writeFileSync(dest_file, format, 'utf8');
 
                   return format || callback(null, format);
@@ -99,7 +100,7 @@ module.exports.logger = ( dest_file, input, callback ) => {
           // write to the file in utf8 format and concatenat the data from the 'dest_file' and the 'fomat'
           fs.writeFile(dest_file, data, 'utf8', (err) => {
               // if there is a error then return catchError() with a callback() if one is provided.
-              if (err) return tool.catchError(err.message, callback === undefined ? undefined : callback);
+              if (err) return tool.catchError(err.message, callback);
 
               // else return back the fomat or the callback if on was provided and the 'format'
               return callback(null, format);
@@ -107,9 +108,10 @@ module.exports.logger = ( dest_file, input, callback ) => {
       }
 
       try {
-
+           
+           console.log(`action => ${ input.action } : ${ format }`);
            fs.writeFileSync(dest_file, data, 'utf8');
-	         return format;
+	       return format;
       }
       catch (e) {
 
