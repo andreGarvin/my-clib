@@ -27,7 +27,7 @@ exports.onload = function( file_name, callback ) {
         }
         else {
             
-            return return tool.catchError(`*error: File path '${ file_name }' does not exist.`, callback === undefined ? undefined : callback){
+            return tool.catchError(`*error: File path '${ file_name }' does not exist.`, callback === undefined ? undefined : callback)
         }
     }
     catch (err) {
