@@ -8,7 +8,7 @@
 ## How easy is it to use clib.js
 
 ### code example:
-```
+```js
 _______________________________________________________
 > app.js
 
