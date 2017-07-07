@@ -1,5 +1,5 @@
 /cli
-/.hooks
 /.logs
 /app.js
-/.server
+/nerve-bundle.js
+/nerve.json
