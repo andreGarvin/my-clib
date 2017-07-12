@@ -1,5 +1,5 @@
 {
-  "name": "clib",
+  "name": "my-clib",
   "version": "1.0.0",
   "description": "This is a node module created to help build/create cli tools much faster and easier.",
   "main": "index.js",
@@ -8,8 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/andreGarvin/clib.git"
+    "url": "https://www.github.com/andreGarvin/my-clib.git"
   },
-  "author": "Andre Garvin",
+  "author": "andre garvin",
   "license": "MIT"
 }
