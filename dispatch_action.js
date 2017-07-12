@@ -4,7 +4,7 @@ path = require('path'),
 fs = require('fs');
 
 // dispatchs the actions to the
-module.exports.dispatch_action = (method, obj, commands) => {
+module.exports = (method, obj, commands) => {
 
     var resp = 0;
     switch ( obj.action ) {

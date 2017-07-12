@@ -1,6 +1,6 @@
 const tool = require('./tools.js');
 
-module.exports.argParser = function(args, callback) {
+module.exports = function(args, callback) {
 
     // splices the cli arguements
     // to return [ 'action', 'args', 'payload...' ]
