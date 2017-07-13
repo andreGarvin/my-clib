@@ -1,6 +1,6 @@
 {
   "name": "my-clib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a node module created to help build/create cli tools much faster and easier.",
   "main": "index.js",
   "scripts": {
