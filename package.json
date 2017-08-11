@@ -4,12 +4,19 @@
   "description": "This is a node module created to help build/create cli tools much faster and easier.",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "pub-docs": "grunt publish-docs",
+    "doc": "jsdoc src --verbose"
   },
   "repository": {
     "type": "git",
     "url": "https://www.github.com/andreGarvin/my-clib.git"
   },
   "author": "andre garvin",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "jsdoc": "^3.5.4"
+  }
 }

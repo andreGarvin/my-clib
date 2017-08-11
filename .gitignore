@@ -1,3 +1,5 @@
+/node_modules
+/out
 /cli
 /.logs
-/app.js
+/myApp

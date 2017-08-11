@@ -10,7 +10,6 @@ ilds = require('./ilds.js');
 
 
 // exporting the bin script modules
-
 module.exports = {
     zip: tool.zip,
     help: help.manual,
@@ -18,7 +17,6 @@ module.exports = {
     logger: tool.logger,
     exArgs: tool.exArgs,
     prompt: tool.prompt,
-    includes: tool.includes,
     pipeline: tool.pipeline,
     catchError: tool.catchError,
     argParser: argParser,

@@ -4,7 +4,13 @@ const fs = require('fs'),
 path = require('path'),
 tool = require('./tools.js');
 
-// loads the json file
+/**
+  * Loads the JSON cli config 'cli.json' for the cli tool to use
+  * @param {string} file_name give file name path that is a string
+  * @param {function} callback a callback function that returns a {err} or that
+  * cli.json application config.
+  * @return {callback}
+*/
 exports.onload = function( file_name, callback ) {
 
     try {
@@ -38,7 +44,15 @@ exports.onload = function( file_name, callback ) {
 
 };
 
-
+/**
+  * Saves a data of any type of input and writes to a given file name path of
+  * that data then it must return a callback.
+  * @function
+  * @param {string} path file name
+  * @param {(string|Object|number|array)} data any data type passed to the svae function
+  * @param {function} callback callback returns a err or the saved data.
+  * @return {callback}
+*/
 module.exports.save = (path, data, callback) => {
 
     try {
