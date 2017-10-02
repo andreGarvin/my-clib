@@ -31,10 +31,11 @@ module.exports = (method, parsed_arguments, commands) => {
         // default checks if the action reqauls help to excuate automatically
         case 'help':
 
-              if ( parsed_arguments.payload.length !== 0 )
+              if ( parsed_arguments.payload.length !== 0 ) {
                   help.manual(parsed_arguments.pyload);
-
-              help.manual();
+              } else {
+                  help.manual();
+              }
             break;
 
         default:
@@ -47,7 +48,9 @@ module.exports = (method, parsed_arguments, commands) => {
 
                         // checks weather the command requires any arguements or paylaod
                         var command = commands[ parsed_arguments.action ];
-                        if ( ( parsed_arguments.payload.length !== 0 && command.payload === null ) || ( parsed_arguments.args.length !== 0 && command.args === null ) ) {
+                        if ( ( parsed_arguments.payload.length !== 0 && command.payload === null )
+                              ||
+                             ( parsed_arguments.args.length !== 0 && command.args === null ) ) {
 
                             // returns this error if the command does not need any payload or arguemnts
                             // that was described in the cli.json
@@ -65,11 +68,8 @@ module.exports = (method, parsed_arguments, commands) => {
      }
 
      // if the resp variable does equal zero meaning no errors
-     if ( resp !== 0 ) {
+     if ( resp !== 0 ) return tool.catchError( resp );
 
-         return tool.catchError( resp );
-     }
-
-    //  else if it equals zero then return the method
+     //  else if it equals zero then return the method
      return method(parsed_arguments.action, parsed_arguments);
 };

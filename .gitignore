@@ -1,5 +1,4 @@
 /node_modules
-/out
 /cli
-/.logs
-/myApp
+/test
+/src/bin.js

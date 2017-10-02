@@ -5,6 +5,24 @@
 */
 
 /**
+ * This is a function that strips string based on the sperator given to the fucntion
+ * @param {string} str This is the geiven string
+ * @param {string} sep This is the string that you wish to strip from the given string
+ * @function
+ * @return {string}
+ */
+function strip(str, sep) {
+     let newStr = ''
+     for (var i in str) {
+         if (str[i] !== sep) {
+             newStr += str[i]
+         }
+     }
+     return newStr;
+}
+
+
+/**
   * This function takes a array functions called arr_func and some data of any
   * type weather it be a object, array, string ot interger, and passes it into
   * the function in the array to be mutated/changed then returns back that changed
