@@ -13,7 +13,7 @@ const readline = require('readline')
  * @function
  * @return {string}
  */
-function strip(str, sep) {
+module.exports.strip = (str, sep) => {
      let newStr = ''
      for (var i in str) {
          if (str[i] !== sep) {

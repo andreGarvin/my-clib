@@ -1,4 +1,4 @@
-const tool = require('./tools.js');
+const { strip } = require('./tools.js');
 
 /**
   * This is a Object that holds the parsed arguments that were passed from the
