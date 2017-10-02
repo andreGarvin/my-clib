@@ -36,7 +36,7 @@ module.exports = (args, callback) => {
         if ( arg.split('=').length > 1 ) {
             arg = arg.split('=')
             parsed_arguments.flags[strip(arg[0], '-')] = arg[1]
-        } else if ( arg.split('-').length > 1 ) {
+        } else if ( arg[0] == '-' ) {
             if ( ![ args[i + 1] ].includes('-') ) {
                 parsed_arguments.flags[ strip(arg, '-') ] = args[i + 1];
             } else {
