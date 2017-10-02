@@ -21,7 +21,7 @@ const tool = require('./tools.js');
   * @function
   * @return {callback}
 */
-module.exports = (args, callback) {
+module.exports = (args, callback) => {
     args = args.slice(2, args.length)
 
     const parsed_arguments = {
