@@ -1,12 +1,9 @@
-// modules needed for prompt
-const readline = require('readline');
-
-// internal tools and modules
-const dispatch_action = require('./dispatch_action.js'),
-argParser = require('./arg-parser.js'),
-tool = require('./tools.js'),
-help = require('./help.js'),
-ilds = require('./ilds.js');
+// Internal tools and modules
+const dispatch_action = require('./src/dispatch_action.js'),
+argParser = require('./src/arg-parser.js'),
+tool = require('./src/tools.js'),
+help = require('./src/help.js'),
+ilds = require('./src/ilds.js');
 
 
 // exporting the bin script modules
@@ -21,5 +18,5 @@ module.exports = {
     catchError: tool.catchError,
     argParser: argParser,
     dispatch_action: dispatch_action,
-    global_state: '',
+    global_state: {},
 };

@@ -1,3 +1,5 @@
+const readline = require('readline')
+
 /**
   * This can be either a string or a Object holds a property alled errpr_message
   * or err_msg that is being passed throught the cli tool functions/application.
